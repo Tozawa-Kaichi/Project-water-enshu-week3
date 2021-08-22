@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class StaticPattern : MonoBehaviour
 {
     /// <summary>プレイヤーの名前。これをシーンまたぎで渡す</summary>
-    public static string m_name = "ああああ";
+    public static string s_name = "ああああ";
     /// <summary>メッセージを表示するテキスト</summary>
     [SerializeField] Text m_text = default;
-    static Vector2 bird  ;
+    public static Vector3 bird ;
     
 
     /// <summary>
@@ -19,23 +19,27 @@ public class StaticPattern : MonoBehaviour
     /// <param name="input"></param>
     public void SetName(InputField input)
     {
-        StaticPattern.m_name = input.text;
+        StaticPattern.s_name = input.text;
+        bird = GameObject.Find("Bird").transform.position;
     }
 
      
     void Start()
     {
+        
         if (m_text)
         {
-            Getposition();
-            m_text.text = $"よくぞ来た！勇者 <b><color=red>{StaticPattern.m_name}</color></b> よ！";
+           
+            GameObject.Find("Bird").transform.position = bird;
+            //Getposition();
+            m_text.text = $"よくぞ来た！勇者 <b><color=red>{StaticPattern.s_name}</color></b> よ！";
             Debug.Log(m_text.text);
         }
     }
 
     public void Getposition()
     {
-        Vector2 bird = GameObject.Find("Bird").transform.position;
+        
         GameObject.Find("Bird").transform.position = bird;
     }
 

@@ -9,5 +9,6 @@ public class PlayerPrefsPatternSave : MonoBehaviour
     public void SaveName(InputField input)
     {
         PlayerPrefs.SetString("name", input.text);
+        
     }
 }
