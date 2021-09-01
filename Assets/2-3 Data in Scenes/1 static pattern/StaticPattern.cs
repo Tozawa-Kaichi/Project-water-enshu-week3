@@ -31,16 +31,9 @@ public class StaticPattern : MonoBehaviour
         {
            
             GameObject.Find("Bird").transform.position = bird;
-            //Getposition();
+            
             m_text.text = $"よくぞ来た！勇者 <b><color=red>{StaticPattern.s_name}</color></b> よ！";
             Debug.Log(m_text.text);
         }
     }
-
-    public void Getposition()
-    {
-        
-        GameObject.Find("Bird").transform.position = bird;
-    }
-
 }
